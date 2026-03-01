@@ -30,3 +30,23 @@ brisc2025/
 │
 └── text.csv
 ```
+
+## Usage
+### 1. Data Preparation
+The text annotation of MosMedData+ and QaTa-COV19 follows [LViT](https://github.com/HUANGLIZI/LViT).
+Before warming up, run the following command to generate CoTs:
+```
+python generate_cot/generate_cot.py
+```
+
+### 2. Warm Up
+Before training, you can warm up to get a better initailized parameters by the following command:
+```
+python warm_up_train_two_decoder_clip.py
+```
+
+### 3. Training
+Train the model by this command:
+```
+rag_train_two_decoder.py
+```
