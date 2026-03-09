@@ -255,7 +255,7 @@ class MedReasonerDataset(Dataset):
             seed: int = 42,
             return_meta: bool = True,
     ):
-        assert mode in ("labeled", "unlabeled", "val", "test"), "mode 必须是 labeled/unlabeled/val/test 之一"
+        assert mode in ("labeled", "unlabeled", "val", "test"), "mode must be one of labeled/unlabeled/val/test."
 
         self.mode = mode
         self.root_dir = root_dir
@@ -357,5 +357,6 @@ class MedReasonerDataset(Dataset):
             "text": csv_row.get("problem"),
             "cot": csv_row.get("answer"),
         }
+
 
         return img_t, mask_t, meta
