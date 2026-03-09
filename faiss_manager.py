@@ -250,7 +250,7 @@ class FaissIndexManager:
         print(f"Updating index with EMA (beta={beta}) for IMAGE embeddings only...")
 
         new_all_image_embeddings = []
-        new_all_image_mappings_check = []  # 用于验证
+        new_all_image_mappings_check = []
 
         for ds, mode in datasets:
             print(f"Re-computing IMAGE embeddings for mode='{mode}' using EMA model...")
@@ -512,4 +512,5 @@ class FaissIndexManager:
     def get_all_image_embeddings_tensor(self):
         if self.image_embeddings is None:
             return None
+
         return torch.from_numpy(self.image_embeddings).to(self.device)
