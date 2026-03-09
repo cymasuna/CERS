@@ -258,8 +258,8 @@ class CoordAttGatedFusion(nn.Module):
         y = self.act(y)
         x_h, x_w = torch.split(y, [H, W], dim=2)
         x_w = x_w.permute(0, 1, 3, 2)  # [B, C, 1, W]
-        a_h = torch.sigmoid(self.conv_h(x_h))  # 高度方向的注意力 [B, C, H, 1]
-        a_w = torch.sigmoid(self.conv_w(x_w))  # 宽度方向的注意力 [B, C, 1, W]
+        a_h = torch.sigmoid(self.conv_h(x_h))
+        a_w = torch.sigmoid(self.conv_w(x_w))
         gate = a_h * a_w
         out_rag = gate * rag_feat
         out = main_feat + out_rag
@@ -573,5 +573,6 @@ class CERS(CERSIncomplete):
 
         outr = self.final_up_right(d1r)
         outr = self.final_conv_right(outr)
+
 
         return outl, outr
