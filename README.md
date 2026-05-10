@@ -45,6 +45,7 @@ Before warming up, run the following command to generate CoTs:
 ```
 python generate_cot/generate_cot.py
 ```
+***Notice:*** CoT and text description of three datasets we used is now updated. See the folder ***CoT***.
 
 ### 2. Warm Up
 Before training, you can warm up to get a better initailized parameters by the following command:
